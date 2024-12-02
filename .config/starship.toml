@@ -30,7 +30,7 @@ format = 'underwent [$duration](bold yellow)'
 read_only = " 󰌾"
 
 [docker_context]
-symbol = " "
+symbol = "  "
 
 [git_branch]
 symbol = " "
@@ -48,7 +48,7 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "  "
 disabled = false
 threshold = 75
 format = '[$symbol${ram_pct}]($style) '
