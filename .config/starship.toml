@@ -48,10 +48,9 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-#symbol = "󰍛 "
-symbol = "󰨦"
+symbol = " "
 disabled = false
-threshold = 10
+threshold = 75
 format = '[$symbol${ram_pct}]($style) '
 style = 'bold red'
 
