@@ -5,7 +5,6 @@ TERM = "tmux-256color"
 save_to_clipboard = true
 
 [window]
-decorations = "none"
 opacity = 0.9
 dimensions = { columns = 120, lines = 60}
 
