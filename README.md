@@ -5,6 +5,7 @@
 -   nvim
 -   tmux
 -   stow
+-   ripgrep
 
 ## Install
 
