@@ -4,4 +4,3 @@
 -   alacritty
 -   nvim
 -   tmux
--   starship
