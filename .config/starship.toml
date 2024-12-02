@@ -5,19 +5,81 @@
 # Palettes must be defined _after_ this line
 palette = "catppuccin_macchiato"
 
-# Starship modules
-[character]
-# Note the use of Catppuccin color 'peach'
-success_symbol = "[[󰄛](green) ❯](peach)"
-error_symbol = "[[󰄛](red) ❯](peach)"
-vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
+[[battery.display]]
+threshold = 10
+discharging_symbol = '󰂃 '
+style = 'bold red'
 
-[git_branch]
-style = "bold mauve"
+[[battery.display]]
+threshold = 30
+style = 'bold yellow'
+discharging_symbol = '󰂃 '
+
+[c]
+symbol = " "
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
+[cmd_duration]
+min_time = 500
+format = 'underwent [$duration](bold yellow)'
 
 [directory]
-truncation_length = 4
-style = "bold lavender"
+read_only = " 󰌾"
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+#symbol = "󰍛 "
+symbol = "󰨦"
+disabled = false
+threshold = 10
+format = '[$symbol${ram_pct}]($style) '
+style = 'bold red'
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[os.symbols]
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Kali = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+Pop = " "
+Raspbian = " "
+Ubuntu = " "
+Unknown = " "
 
 # Palette definitions
 [palettes.catppuccin_macchiato]
