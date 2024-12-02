@@ -1,4 +1,8 @@
-general.import = [
+[env]
+TERM = "tmux-256color"
+
+[general]
+import = [
 	"~/.config/alacritty/catppuccin-macchiato.toml"
 ]
 
@@ -7,5 +11,4 @@ dimensions = { columns = 120, lines = 60}
 
 [font]
 normal = { family = "Hack Nerd Font", style = "Regular"}
-
 size = 14
