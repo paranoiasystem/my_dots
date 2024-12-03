@@ -8,6 +8,7 @@
 - ripgrep
 - asdf
 - direnv
+- node
 
 ## Install
 
