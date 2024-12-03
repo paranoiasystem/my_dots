@@ -1,18 +1,20 @@
 ## Required software
 
--   zsh
--   alacritty
--   nvim
--   tmux
--   stow
--   ripgrep
+- zsh
+- alacritty
+- nvim
+- tmux
+- stow
+- ripgrep
+- asdf
+- direnv
 
 ## Install
 
--   install required software
--   clone this repo
--   move in the repo directory
--   run this:
+- install required software
+- clone this repo
+- move in the repo directory
+- run this:
 ```sh
 mkdir -p ~/.config
 rm ~/.zshenv
