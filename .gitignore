@@ -3,3 +3,5 @@
 .config/nvim/lazy-lock.json
 
 .config/nvim/lazyvim.json
+
+.config/zsh/.zcompcache
