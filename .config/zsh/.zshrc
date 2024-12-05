@@ -64,3 +64,11 @@ fi
 if [[ -n $TMUX ]]; then
   export TERM="tmux-256color"
 fi
+
+# asdf
+. $HOME/.asdf/asdf.sh
+
+
+# direnv
+eval "$(asdf exec direnv hook zsh)"
+
