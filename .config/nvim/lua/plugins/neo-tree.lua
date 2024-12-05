@@ -14,6 +14,7 @@ return {
         },
         never_show = {
           ".git",
+          ".DS_Store",
         },
       },
     },

@@ -5,3 +5,5 @@
 .config/nvim/lazyvim.json
 
 .config/zsh/.zcompcache
+
+.DS_Store
