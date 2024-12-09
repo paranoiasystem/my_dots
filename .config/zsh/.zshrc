@@ -66,7 +66,11 @@ if [[ -n $TMUX ]]; then
 fi
 
 # asdf
-. $HOME/.asdf/asdf.sh
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  . $HOME/.asdf/asdf.sh
+elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
+  . /usr/local/opt/asdf/libexec/asdf.sh
+fi
 
 
 # direnv
