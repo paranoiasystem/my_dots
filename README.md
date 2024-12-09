@@ -3,13 +3,13 @@
 ## Required software
 
 - zsh
-- alacritty
-- nvim
-- tmux
-- stow
-- ripgrep
-- asdf
-- direnv
+- alacritty [https://alacritty.org/index.html](https://alacritty.org/index.html)
+- nvim `brew install neovim`
+- tmux `brew install tmux`
+- stow `brew install stow`
+- ripgrep `brew install ripgrep`
+- asdf [https://github.com/asdf-vm/asdf](https://github.com/asdf-vm/asdf)
+- direnv [https://github.com/asdf-community/asdf-direnv](https://github.com/asdf-community/asdf-direnv)
 - node
 
 ## Install
