@@ -76,3 +76,4 @@ fi
 # direnv
 eval "$(asdf exec direnv hook zsh)"
 
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
