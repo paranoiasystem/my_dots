@@ -8,6 +8,7 @@
 - tmux `brew install tmux`
 - stow `brew install stow`
 - ripgrep `brew install ripgrep`
+- fzf `brew install fzf`
 - asdf [https://github.com/asdf-vm/asdf](https://github.com/asdf-vm/asdf)
 - direnv [https://github.com/asdf-community/asdf-direnv](https://github.com/asdf-community/asdf-direnv)
 - node

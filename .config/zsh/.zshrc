@@ -45,20 +45,30 @@ alias lal="ls -al"
 alias ..="cd .."
 alias ...="cd ../.."
 alias g="git"
-alias gs="git status"
-alias gl="git log"
-alias gd="git diff"
-alias gc="git commit"
-alias gb="git branch"
-alias ga="git add"
-alias gp="git push"
 alias h='history -t "%d.%m.%y-%H:%M:%S"'
+alias k=kubectl
+
+# kubectl
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+  if command -v kubecolor >/dev/null 2>&1; then
+    # Make "kubecolor" borrow the same completion logic as "kubectl"
+    compdef kubecolor=kubectl
+  fi
+fi
 
 # tmux
 export TMUX_PLUGIN_MANAGER_PATH=$XDG_DATA_HOME/tmux/plugins
 # Create tmux dir for its data (plugins)
 if [[ ! -d $XDG_DATA_HOME/tmux/plugins ]]; then
   mkdir -p "$XDG_DATA_HOME"/tmux/plugins
+fi
+
+# fzf
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+else
+  echo "fzf not found"
 fi
 
 if [[ -n $TMUX ]]; then
