@@ -97,9 +97,14 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
 elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
   . /usr/local/opt/asdf/libexec/asdf.sh
 fi
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 
 # direnv
 eval "$(asdf exec direnv hook zsh)"
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+# bindkey
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
