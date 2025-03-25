@@ -73,6 +73,11 @@ if command -v kubectl >/dev/null 2>&1; then
   fi
 fi
 
+# kind
+if command -v kind >/dev/null 2>&1; then
+  source <(kind completion zsh)
+fi
+
 # tmux
 export TMUX_PLUGIN_MANAGER_PATH=$XDG_DATA_HOME/tmux/plugins
 # Create tmux dir for its data (plugins)
@@ -92,11 +97,11 @@ if [[ -n $TMUX ]]; then
 fi
 
 # asdf
-if [[ -f $HOME/.asdf/asdf.sh ]]; then
-  . $HOME/.asdf/asdf.sh
-elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
-  . /usr/local/opt/asdf/libexec/asdf.sh
-fi
+# if [[ -f $HOME/.asdf/asdf.sh ]]; then
+#   . $HOME/.asdf/asdf.sh
+# elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
+#   . /usr/local/opt/asdf/libexec/asdf.sh
+# fi
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 
