@@ -34,7 +34,14 @@ for plugin in $plugins; do
 done
 
 # completion
-autoload -U compinit
+
+if command -v asdf >/dev/null 2>&1; then
+  mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+  asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
+  fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+fi
+
+autoload -Uz compinit && compinit
 compinit -d "$XDG_DATA_HOME/zsh/zcompdump"
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -102,13 +109,19 @@ fi
 # elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
 #   . /usr/local/opt/asdf/libexec/asdf.sh
 # fi
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-
-# direnv
-eval "$(asdf exec direnv hook zsh)"
+# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+# mise
+if [[ -f $HOME/.local/bin/mise ]]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+else
+  echo "mise not found, please install it, curl https://mise.run | sh"
+fi
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # bindkey
 bindkey '^[[A' history-substring-search-up
