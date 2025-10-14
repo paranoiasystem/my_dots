@@ -1,9 +1,12 @@
 .config/zsh/.zsh_history
-
-.config/nvim/lazy-lock.json
-
-.config/nvim/lazyvim.json
-
+.config/zsh/.zcompdump
+.config/zsh/.zsh_sessions
 .config/zsh/.zcompcache
+
+.config/helm
+
+.config/github-copilot
+
+.config/waveterm
 
 .DS_Store
