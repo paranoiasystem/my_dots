@@ -5,6 +5,7 @@
 - zsh
 - alacritty [https://alacritty.org/index.html](https://alacritty.org/index.html)
 - nvim `brew install neovim`
+- lazygit `brew install lazygit`
 - tmux `brew install tmux`
 - stow `brew install stow`
 - ripgrep `brew install ripgrep`
@@ -19,7 +20,6 @@
 - run this:
 
 ```sh
-
 mkdir -p ~/.config
 rm ~/.zshenv
 stow . --target=$HOME
