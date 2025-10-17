@@ -1,7 +1,7 @@
 return {
   "zbirenbaum/copilot.lua",
   opts = {
-    fileTypes = {
+    filetypes = {
       markdown = true,
       gitcommit = true,
     },
