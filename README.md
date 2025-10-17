@@ -24,3 +24,9 @@ mkdir -p ~/.config
 rm ~/.zshenv
 stow . --target=$HOME
 ```
+
+## Set NeoVim as default editor for git
+
+```sh
+git config --global core.editor nvim
+```
