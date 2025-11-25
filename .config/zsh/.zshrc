@@ -34,7 +34,6 @@ for plugin in $plugins; do
 done
 
 # completion
-
 if command -v asdf >/dev/null 2>&1; then
   mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
   asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
@@ -99,29 +98,14 @@ else
   echo "fzf not found"
 fi
 
-if [[ -n $TMUX ]]; then
-  export TERM="tmux-256color"
-fi
-
-# asdf
-# if [[ -f $HOME/.asdf/asdf.sh ]]; then
-#   . $HOME/.asdf/asdf.sh
-# elif [[ -f /usr/local/opt/asdf/libexec/asdf.sh ]]; then
-#   . /usr/local/opt/asdf/libexec/asdf.sh
-# fi
-# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
 # mise
-if [[ -f $HOME/.local/bin/mise ]]; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
-else
+if ! command -v mise >/dev/null 2>&1; then
   echo "mise not found, please install it, curl https://mise.run | sh"
 fi
-
-# direnv
-eval "$(direnv hook zsh)"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+  source <(mise completion zsh)
+fi
 
 # bindkey
 bindkey '^[[A' history-substring-search-up

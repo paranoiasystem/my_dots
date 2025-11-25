@@ -6,14 +6,12 @@ save_to_clipboard = true
 
 [window]
 opacity = 0.9
-dimensions = { columns = 120, lines = 60}
+dimensions = { columns = 120, lines = 30 }
 
 [general]
 live_config_reload = true
-import = [
-  "~/.config/alacritty/catppuccin-macchiato.toml"
-]
+import = ["~/.config/alacritty/catppuccin-macchiato.toml"]
 
 [font]
-normal = { family = "Hack Nerd Font", style = "Regular"}
+normal = { family = "Hack Nerd Font", style = "Regular" }
 size = 14
