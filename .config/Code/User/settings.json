@@ -5,5 +5,8 @@
     "terminal.integrated.fontFamily": "Hack Nerd Font",
     "terminal.integrated.fontSize": 14,
     "workbench.colorTheme": "Catppuccin Macchiato",
-    "workbench.iconTheme": "catppuccin-macchiato"
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "github.copilot.enable": {
+        "markdown": true
+    }
 }
