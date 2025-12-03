@@ -1,5 +1,6 @@
 [tools]
 node = "24.9.0"
+usage = "latest"
 
 [env]
 TEST = "ok"
