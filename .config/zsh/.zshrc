@@ -107,6 +107,11 @@ if command -v mise >/dev/null 2>&1; then
   source <(mise completion zsh)
 fi
 
+# dbus for applications that need it on linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+fi
+
 # bindkey
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
