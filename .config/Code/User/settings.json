@@ -8,5 +8,14 @@
     "workbench.iconTheme": "catppuccin-macchiato",
     "github.copilot.enable": {
         "markdown": true
-    }
+    },
+    "claudeCode.preferredLocation": "panel",
+    "terminal.integrated.suggest.cdPath": "off",
+    "terminal.integrated.suggest.enabled": false,
+    "terminal.integrated.suggest.inlineSuggestion": "off",
+    "terminal.integrated.suggest.providers": {
+        "lsp": false,
+        "vscode.terminal-suggest": false
+    },
+    "terminal.integrated.suggest.selectionMode": "never"
 }
