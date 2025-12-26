@@ -70,6 +70,15 @@ alias g="git"
 alias h='history -t "%d.%m.%y-%H:%M:%S"'
 alias k=kubectl
 
+# mise
+if ! command -v mise >/dev/null 2>&1; then
+  echo "mise not found, please install it, curl https://mise.run | sh"
+fi
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+  source <(mise completion zsh)
+fi
+
 # kubectl
 if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
@@ -96,15 +105,6 @@ if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 else
   echo "fzf not found"
-fi
-
-# mise
-if ! command -v mise >/dev/null 2>&1; then
-  echo "mise not found, please install it, curl https://mise.run | sh"
-fi
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate zsh)"
-  source <(mise completion zsh)
 fi
 
 # dbus for applications that need it on linux
