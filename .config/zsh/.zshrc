@@ -1,3 +1,9 @@
+# XDG Base Directory Specification
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
 eval "$(starship init zsh)"
 
 # starship, install if missing
@@ -52,6 +58,7 @@ setopt hist_ignore_space
 setopt inc_append_history
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=100000
+export SAVEHIST=100000
 # needed for vimtex-neovim
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 # pretty man pages
