@@ -14,22 +14,6 @@ if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
-# krew, install if missing
-if command -v kubectl >/dev/null 2>&1 && [[ ! -d "${KREW_ROOT:-$HOME/.krew}/bin" ]]; then
-  (
-    set -x; cd "$(mktemp -d)" &&
-    OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
-    ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
-    KREW="krew-${OS}_${ARCH}" &&
-    curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
-    tar zxvf "${KREW}.tar.gz" &&
-    ./"${KREW}" install krew
-  )
-fi
-if [[ -d "${KREW_ROOT:-$HOME/.krew}/bin" ]]; then
-  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-fi
-
 # zsh plugins
 plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 for plugin in $plugins; do
@@ -86,18 +70,70 @@ if command -v mise >/dev/null 2>&1; then
   source <(mise completion zsh)
 fi
 
+# krew, install if missing
+if command -v kubectl >/dev/null 2>&1 && [[ ! -d "${KREW_ROOT:-$HOME/.krew}/bin" ]]; then
+  (
+    set -x; cd "$(mktemp -d)" &&
+    OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+    ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+    KREW="krew-${OS}_${ARCH}" &&
+    curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+    tar zxvf "${KREW}.tar.gz" &&
+    ./"${KREW}" install krew
+  )
+fi
+if [[ -d "${KREW_ROOT:-$HOME/.krew}/bin" ]]; then
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
+
 # kubectl
 if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
   if command -v kubecolor >/dev/null 2>&1; then
     # Make "kubecolor" borrow the same completion logic as "kubectl"
     compdef kubecolor=kubectl
+    alias kubectl='kubecolor'
   fi
 fi
 
 # kind
 if command -v kind >/dev/null 2>&1; then
   source <(kind completion zsh)
+fi
+
+# terraform
+# if command -v terraform >/dev/null 2>&1; then
+#   source <(terraform -install-autocomplete)
+# fi
+
+# talos
+if command -v talosctl >/dev/null 2>&1; then
+  source <(talosctl completion zsh)
+fi
+
+# velero
+if command -v velero >/dev/null 2>&1; then
+  source <(velero completion zsh)
+fi
+
+# flux
+if command -v flux >/dev/null 2>&1; then
+  source <(flux completion zsh)
+fi
+
+# kustomize
+if command -v kustomize >/dev/null 2>&1; then
+  source <(kustomize completion zsh)
+fi
+
+# talhelper
+if command -v talhelper >/dev/null 2>&1; then
+  source <(talhelper completion zsh)
+fi
+
+# helm
+if command -v helm >/dev/null 2>&1; then
+  source <(helm completion zsh)
 fi
 
 # tmux
