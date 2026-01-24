@@ -70,6 +70,15 @@ if command -v mise >/dev/null 2>&1; then
   source <(mise completion zsh)
 fi
 
+# atuin install if missing
+# check if atuin is installed, if file is missing, install it $HOME/.atuin/bin/atuin
+if [[ ! -f "$HOME/.atuin/bin/atuin" ]]; then
+  curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+fi
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh)"
+fi
+
 # krew, install if missing
 if command -v kubectl >/dev/null 2>&1 && [[ ! -d "${KREW_ROOT:-$HOME/.krew}/bin" ]]; then
   (
@@ -158,3 +167,4 @@ fi
 # bindkey
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+. "$HOME/.atuin/bin/env"
