@@ -17,5 +17,6 @@
         "lsp": false,
         "vscode.terminal-suggest": false
     },
-    "terminal.integrated.suggest.selectionMode": "never"
+    "terminal.integrated.suggest.selectionMode": "never",
+    "claudeCode.selectedModel": "default"
 }
