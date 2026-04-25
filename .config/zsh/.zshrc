@@ -61,6 +61,15 @@ alias g="git"
 alias h='history -t "%d.%m.%y-%H:%M:%S"'
 alias k=kubectl
 
+## On Arch Linux or CachyOS
+if [[ -f /etc/os-release ]]; then
+  source /etc/os-release
+  if [[ "$ID" == "arch" || "$ID" == "cachyos" ]]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+  fi
+fi
+
 # mise
 if ! command -v mise >/dev/null 2>&1; then
   echo "mise not found, please install it, curl https://mise.run | sh"
